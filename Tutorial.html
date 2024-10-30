@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SampahCerdasku | Tutorial</title>
+</head>
+<body>
+    <style>
+                @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+:root{
+    --green: #76a713;
+}
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all .5s cubic-bezier(.37,1.14,.26,1.24);
+}
+*::selection{
+    background-color: var(--green);
+    color: #fff;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+body{
+    background-color: #e9ffd0;
+}
+
+
+section{
+    padding: 4% 6%;
+    background-color: #e9ffd0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.btn{
+    height: 5rem;
+    width: 16rem;
+    background: none;
+    outline: none;
+    border: .2rem solid var(--green);
+    color: var(--green);
+    font-size: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+}
+.btn::before,
+.btn::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--green);
+    z-index: -1;
+    transition: all .5s cubic-bezier(.37,1.14,.26,1.24);
+}
+.btn::before{
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+.btn:hover::before{
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+.btn::after{
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+}
+.btn:hover::after{
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+.btn:hover{
+    color: #fff;
+}
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #555;
+    padding: 1rem;
+    padding-top: 5rem;
+}
+.heading i{
+    color: #76a713;
+    font-size: 2rem;
+}
+header{
+    position: fixed;
+    top: 10px; /* Memberikan jarak dari atas halaman */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 10px 0;
+    z-index: 1000;
+    
+}
+
+header .navbar {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    height: 100px;
+    border-radius: 30px;
+    background-color: #9FAC6A; /* atau warna yang Anda inginkan */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: menambahkan bayangan */
+} /* Tambahkan ini jika diperlukan */
+
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+header .navbar ul li{
+    margin: 0 15px;
+}
+
+header .navbar ul li a{
+    display: inline-block;
+    width: 110px; /* Mengurangi lebar dari 150px */
+    height: 32px; /* Mengurangi tinggi dari 40px */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    line-height: 32px; /* Sesuaikan dengan height */
+    background-color: #Faffe0;
+    border-radius: 17.5px; /* Setengah dari height */
+    margin: 0 5px; /* Mengurangi margin dari 8px */
+    transition: background-color 0.3s;
+    font-size: 1.3rem; /* Menambahkan ukuran font yang lebih kecil */
+}
+
+header .navbar ul li a:hover{
+    color: var(--green);
+}
+header .fa-bars{
+    font-size: 3rem;
+    color: #000;
+    cursor: pointer;
+    display: none;
+}
+
+.nav .user-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: #555;
+    padding: 1rem;
+    padding-top: 7rem; /* Mengubah dari 5rem menjadi 7rem */
+    margin-top: 2rem; /* Menambahkan margin-top */
+}
+
+.post .box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.post .box {
+    flex: 1;
+    min-width: 300px; /* atau sesuaikan dengan kebutuhan */
+    max-width: 400px; /* atau sesuaikan dengan kebutuhan */
+}
+
+/* Pastikan gambar dalam box memiliki ukuran yang konsisten */
+.post .box img {
+    width: 100%;
+    height: 250px; /* atau sesuaikan dengan kebutuhan */
+    object-fit: cover;
+}
+
+/* Mengatur konten agar memiliki tinggi yang sama */
+.post .box .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#lampu {
+    margin-top: 20px; /* Sesuaikan nilai ini untuk menurunkan box */
+}
+
+@media (min-width: 992px) { /* Ukuran layar desktop */
+    .post .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .post .box {
+        flex-basis: calc(33.333% - 2rem);
+        margin-right: 2rem;
+    }
+
+    #lampu {
+        margin-top: 40px; /* Sesuaikan nilai ini untuk menurunkan box pada layar lebar */
+    }
+}
+    </style>
+    <header>
+        <nav class="navbar">
+            <a href="#home"><img src="images/IconSC.png" alt="" width="100"></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Beranda.html" class="nav-link">Beranda</a></li>
+                <li><a href="Tutorial.html" class="nav-link">Tutorial</a></li>
+                <li><a href="Galeri.html" class="nav-link">Galeri</a></li>
+                <li><a href="Forum.html" class="nav-link">Forum</a></li>
+                <!-- <li><a href="#Blog" class="nav-link">Blog</a></li> -->
+            </ul>
+            <div class="nav">
+                <button class="user-icon"><i class="fas fa-user"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- post section -->
+    <section class="post" id="post">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> TUTORIAL <i class="fas fa-quote-right"></i></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="images/brg1.jpeg" alt="">
+                <div class="content">
+                    <span><i class="fas fa-calender"></i>Oct 30, 2024</span>
+                    <h3>Pot dari botol bekas</h3>
+                    <p><b>Alat & Bahan:</b>
+                        <br>Botol plastik
+                        <br>Gunting atau cutter
+                        <br>Cat atau spidol (untuk hiasan)
+                        <br>Paku kecil
+                        <br>Tanah dan tanaman
+                        <br><b>Langkah-langkah:</b>
+                        <br>- Potong Botol:
+                        <br>Potong botol sesuai ukuran pot yang diinginkan.
+                        
+                        <br>- Lubang Drainase:
+                        <br>Buat beberapa lubang kecil di dasar botol dengan paku.
+                        
+                        <br>- Dekorasi:
+                        <br>Hias pot dengan cat atau spidol, tambahkan pita jika suka.
+                        
+                        <br>- Isi Tanah & Tanam:
+                        <br>Masukkan tanah dan tanam tanaman kecil.
+                        
+                        </p>
+                    <!-- <a href="#" class="btn">red more</a> -->
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/brg2.jpg" alt="">
+                <div class="content">
+                    <span><i class="fas fa-calender"></i>Oct 29, 2024</span>
+                    <h3>Dompet dari botol bekas</h3>
+                    <p> <b>Alat & Bahan:</b>
+                        <br>- 2 botol plastik
+                        <br>- Resleting (panjang sesuai lingkar botol)
+                        <br>- Gunting
+                        <br>- Lem tembak atau lem kuat
+                        
+                        <b>Langkah-langkah:</b>
+                        
+                        <br>1. Potong Botol:
+                           Potong bagian bawah dua botol (sekitar 5-7 cm dari dasar).
+                        
+                        <br>2. Tempelkan Resleting:
+                           Lem resleting di sekeliling potongan botol pertama. Sambungkan ujung resleting ke potongan botol kedua, sehingga bisa dibuka-tutup seperti dompet.
+                        
+                        <br>3. Rapikan:  
+                           Pastikan resleting terpasang kuat, lalu bersihkan bagian pinggirnya.
+                        
+                        <br>Dompet unik dari botol bekas siap digunakan!</p>
+                    <!-- <a href="#" class="btn">red more</a> -->
+                </div>
+            </div>
+            <div class="box" id="lampu">
+                <img src="images/brg6.jpeg" alt="">
+                <div class="content">
+                    <span><i class="fas fa-calender"></i>Oct 30, 2024</span>
+                    <h3>Lampu tidur dari sendok plastik</h3>
+                    <p>
+                       <b>Alat & Bahan:</b>
+                        <br>- Botol plastik besar (misalnya, botol galon 5 liter)
+                        <br>- Sendok plastik (sekitar 100-150 buah, tergantung ukuran botol)
+                        <br>- Lem tembak atau lem kuat
+                        <br>- Gunting atau cutter
+                        <br>- Fitting lampu dan bola lampu LED
+                        
+                        <b>Langkah-langkah:</b>
+                        
+                        <br>1. Potong Sendok: 
+                           <br>Potong gagang setiap sendok, sisakan bagian kepala sendok untuk hiasan.
+                        
+                        <br>2.  Potong Bagian Atas Botol: 
+                           <br>Potong bagian atas botol plastik agar fitting lampu bisa masuk.
+                        
+                        <br>3. Tempel Sendok pada Botol: 
+                           <br>Mulailah menempel kepala sendok dari bagian bawah botol, susun melingkar dan bertumpuk hingga ke atas. Lanjutkan sampai seluruh botol tertutup dengan sendok, sehingga membentuk pola sisik.
+                        
+                        <br>4. Pasang Lampu:  
+                           <br>Masukkan fitting lampu dan pasang bola lampu LED di dalam botol.
+                        
+                        Lampu hias dari sendok plastik siap digunakan untuk dekorasi unik!</p>
+                    <!-- <a href="#" class="btn">red more</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <a href=""><img src="images/IconSC.png" alt="" style="width: 80px; height: 80px;"></a>
+                <p>Mari ikuti sosial media kami..</p>
+    
+            </div>
+            <div class="box">
+                <h3 class="share">share</h3>
+                <a href="">facebook</a>
+                <a href="">twitter</a>
+                <a href="">what's app</a>
+                <a href="">instagram</a>
+            </div>
+            <div class="box">
+                <h3 class="news">newsletter</h3>
+                <form action="">
+                    <input type="email" placeholder="enter your email">
+                    <button class="fas fa-paper-plane"></button>
+                </form>
+            </div>
+        </div>
+        <h1 class="credit">created by <a href="https://www.instagram.com/raihannn.l/"><span>Raihannn.l</span> </a>| all right reserved</h1>    </section>
+</body>
+</html>
